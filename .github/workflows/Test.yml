@@ -49,7 +49,7 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
-          name: ${{ matrix.testMode }}-artifacts
+          name: Coverage results for ${{ matrix.testMode }}
       - name: Code Coverage Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
