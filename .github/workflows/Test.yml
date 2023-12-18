@@ -35,7 +35,7 @@ jobs:
           artifactsPath: ${{ matrix.testMode }}-artifacts
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           checkName: ${{ matrix.testMode }} Test Results
-          coverageOptions: 'generateAdditionalReports'
+          coverageOptions: 'generateHtmlReport;generateAdditionalReports'
       - uses: actions/upload-artifact@v3
         if: always()
         with:
