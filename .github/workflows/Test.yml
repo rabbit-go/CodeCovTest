@@ -46,10 +46,14 @@ jobs:
         with:
           name: Coverage results for ${{ matrix.testMode }}
           path: ${{ steps.tests.outputs.coveragePath }}
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ matrix.testMode }}-artifacts
       - name: Code Coverage Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: ${{ steps.tests.outputs.artifactsPath }}
+          filename: ${{ steps.tests.outputs.artifactsPath }}/*
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
         if: github.event_name == 'pull_request'
