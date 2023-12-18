@@ -48,7 +48,7 @@ jobs:
           path: ${{ steps.tests.outputs.coveragePath }}
       - name: Code Coverage Report
         uses: irongut/CodeCoverageSummary@v1.3.0
-        if: hashFiles('CodeCoverage/**/Cobertura.xml') == ''
+        if: hashFiles('CodeCoverage/**/Cobertura.xml') != ''
         with:
           filename: CodeCoverage/**/Cobertura.xml
           badge: true
