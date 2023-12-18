@@ -60,7 +60,7 @@ jobs:
           output: both
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
-        if: github.event_name == 'pull_request' && hashFiles('CodeCoverage/**/Cobertura.xml') != ''
+        if: github.event_name == 'pull_request' && hashFiles('CodeCoverage/**/Summary.md') != ''
         with:
           recreate: true
-          path: code-coverage-results.md
+          path: CodeCoverage/**/Summary.md
